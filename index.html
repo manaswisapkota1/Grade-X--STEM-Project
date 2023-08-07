@@ -5,15 +5,16 @@
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #9ca2c7;
+            background-color: #C1F1FF;
             padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        h1 {
+        .centered-content {
             text-align: center;
-            color: #333333;
-            font-size: 28px;
-            margin-bottom: 20px;
         }
 
         #periodic-table {
@@ -21,9 +22,13 @@
             border-collapse: separate;
             border-spacing: 10px;
             max-width: 800px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        #periodic-table td {
+        .element {
             width: 60px;
             height: 60px;
             text-align: center;
@@ -38,9 +43,8 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
 
-        #periodic-table td:hover {
+        .element:hover {
             background-color: #fcf5c7;
-
         }
 
         .lanthanides {
@@ -49,7 +53,7 @@
         }
 
         .actinides {
-            background-color:  #adf7b6;
+            background-color: #adf7b6;
             color: #333333;
         }
 
@@ -77,10 +81,7 @@
             margin-bottom: 10px;
         }
 
-        #element-atomic-mass,
-        #element-electron-configuration,
-        #element-characteristics,
-        #element-radioactivity {
+        .element-detail {
             font-size: 14px;
             color: #887171;
             margin-bottom: 10px;
@@ -88,13 +89,13 @@
     </style>
 </head>
 <body>
-    <h1>Interactive Periodic Table - Lanthanides and Actinides</h1>
+    <div class="centered-content">
+        <h1>Interactive Periodic Table - Lanthanides and Actinides</h1>
 
-    <table id="periodic-table">
         <table id="periodic-table">
             <tr>
                 <tr>
-                <td class="element" onclick="showElementInfo('La', 'Lanthanum', '138.90547', '[Xe] 5d1 6s2', 'Silvery-white', 'Stable')">La<br><span>Lanthanum</span></td>
+                <td class="element lanthanides" onclick="showElementInfo('La', 'Lanthanum', '138.90547', '[Xe] 5d1 6s2', 'Silvery-white', 'Stable')">La<br><span>Lanthanum</span></td>
                 <td class="element lanthanides" onclick="showElementInfo('Ce', 'Cerium', '140.116', '[Xe] 4f1 5d1 6s2', 'Silvery-white', 'Stable')">Ce<br><span>Cerium</span></td>
                 <td class="element lanthanides" onclick="showElementInfo('Pr', 'Praseodymium', '140.90766', '[Xe] 4f3 6s2', 'Grayish-white', 'Stable')">Pr<br><span>Praseodymium</span></td>
                 <td class="element lanthanides" onclick="showElementInfo('Nd', 'Neodymium', '144.242', '[Xe] 4f4 6s2', 'Silvery-white', 'Stable')">Nd<br><span>Neodymium</span></td>
@@ -129,15 +130,15 @@
             </tr>
             </tr>
         </table>
-    </table>
 
-    <div id="element-info">
-        <div id="element-symbol"></div>
-        <div id="element-name"></div>
-        <div id="element-atomic-mass"></div>
-        <div id="element-electron-configuration"></div>
-        <div id="element-characteristics"></div>
-        <div id="element-radioactivity"></div>
+        <div id="element-info">
+            <div id="element-symbol"></div>
+            <div id="element-name"></div>
+            <div class="element-detail" id="element-atomic-mass"></div>
+            <div class="element-detail" id="element-electron-configuration"></div>
+            <div class="element-detail" id="element-characteristics"></div>
+            <div class="element-detail" id="element-radioactivity"></div>
+        </div>
     </div>
 
     <script>
